@@ -11,6 +11,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bibliotecalibertadores.model.Usuario;
 import com.bibliotecalibertadores.repository.UsuarioRepository;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class LoginRController {
@@ -31,11 +32,12 @@ public class LoginRController {
     
     @PostMapping("/login")
     public String procesarLogin(@RequestParam String correo, 
-            @RequestParam String password, Model model) {
+            @RequestParam String password, HttpSession session, Model model) {
         
     	Usuario usuario = repUsuarios.findByCorreoUsuarioAndPasswordUsuario(correo, password);
         
         if (usuario != null) {
+            session.setAttribute("logueo", usuario); 
             return "redirect:/inicio";
         } else {
             model.addAttribute("error", "Correo o contraseña incorrectos");
@@ -45,7 +47,7 @@ public class LoginRController {
 
     // Registro 
     @GetMapping("/registro")
-    public String mostrarFormularioRegistro(Model model) {
+    public String formularioRegistro(Model model) {
         if (!model.containsAttribute("usuario")) {
             model.addAttribute("usuario", new Usuario());
         }
@@ -54,13 +56,14 @@ public class LoginRController {
     
     @PostMapping("/registro")
     public String registrarUsuario(@ModelAttribute Usuario usuario, 
-    		RedirectAttributes redirectAttrs) {
+    		RedirectAttributes redirectAttrs, Model model) {
         try {
             repUsuarios.save(usuario);
-            redirectAttrs.addFlashAttribute("mensajeExito", "REGISTRADO CON ÉXITO");
+            model.addAttribute("mensaje", "REGISTRADO CON ÉXITO");
+            model.addAttribute("cssmensaje","alert alert-success");
         } catch (Exception e) {
-            redirectAttrs.addFlashAttribute("mensajeError", "ERROR AL REGISTRAR");
-            redirectAttrs.addFlashAttribute("usuario", usuario); 
+            model.addAttribute("mensaje", "ERROR AL REGISTRAR");
+            model.addAttribute("cssmensaje", "alert alert-danger"); 
         }
         return "redirect:/registro";
     }
