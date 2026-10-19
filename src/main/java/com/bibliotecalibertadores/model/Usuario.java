@@ -21,5 +21,4 @@ public class Usuario {
     private String tlfUsuario;
     private String correoUsuario;
     private String passwordUsuario;
-
 }
