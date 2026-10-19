@@ -15,9 +15,9 @@ import com.bibliotecalibertadores.repository.UsuarioRepository;
 public class UsuarioController {
 
 	// 1. Menú o Inicio del usuario
-	@GetMapping("/inicio")
+	@GetMapping("/")
 	public String inicioUsuario() {
-	    return "inicio"; 
+	    return "iniciousuario"; 
 	}
 
 	@Autowired
