@@ -21,4 +21,48 @@ public class Usuario {
     private String tlfUsuario;
     private String correoUsuario;
     private String passwordUsuario;
+	public Integer getCodUsuario() {
+		return codUsuario;
+	}
+	public void setCodUsuario(Integer codUsuario) {
+		this.codUsuario = codUsuario;
+	}
+	public String getNomUsuario() {
+		return nomUsuario;
+	}
+	public void setNomUsuario(String nomUsuario) {
+		this.nomUsuario = nomUsuario;
+	}
+	public String getApeUsuario() {
+		return apeUsuario;
+	}
+	public void setApeUsuario(String apeUsuario) {
+		this.apeUsuario = apeUsuario;
+	}
+	public String getDniUsuario() {
+		return dniUsuario;
+	}
+	public void setDniUsuario(String dniUsuario) {
+		this.dniUsuario = dniUsuario;
+	}
+	public String getTlfUsuario() {
+		return tlfUsuario;
+	}
+	public void setTlfUsuario(String tlfUsuario) {
+		this.tlfUsuario = tlfUsuario;
+	}
+	public String getCorreoUsuario() {
+		return correoUsuario;
+	}
+	public void setCorreoUsuario(String correoUsuario) {
+		this.correoUsuario = correoUsuario;
+	}
+	public String getPasswordUsuario() {
+		return passwordUsuario;
+	}
+	public void setPasswordUsuario(String passwordUsuario) {
+		this.passwordUsuario = passwordUsuario;
+	}
+    
+    
 }
