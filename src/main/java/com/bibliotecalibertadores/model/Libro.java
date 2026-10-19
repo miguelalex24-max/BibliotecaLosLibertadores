@@ -15,36 +15,36 @@ import lombok.Data;
 @Data
 public class Libro {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "codLibro")
-	private Integer codigo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "codLibro")
+    private Integer codigo;
 
-	@Column(name = "tituloLibro")
-	private String nombre;
+    @Column(name = "tituloLibro")
+    private String nombre;
 
-	@Column(name = "autorLibro")
-	private String autor;
+    @Column(name = "autorLibro")
+    private String autor;
 
-	private Integer codGenero;
+    private Integer codGenero; 
 
-	@Column(name = "anioPub")
-	private Integer anio;
+    @Column(name = "anioPub")
+    private Integer anio;
+    
+    @Column(name = "editorial")
+    private String editorial;
 
-	@Column(name = "editorial")
-	private String editorial;
+    @Column(name = "sinopsis")
+    private String sinopsis;
 
-	@Column(name = "sinopsis")
-	private String sinopsis;
+    @Column(name = "imagenLibro")
+    private String imagen;
 
-	@Column(name = "imagenLibro")
-	private String imagen;
-
-	@Column(name = "estadoLibro")
-	private Integer estadoLibro = 1; // 1: Disponible, 0: No disponible;
-
-	@ManyToOne
-	@JoinColumn(name = "codGenero", insertable = false, updatable = false)
-	private Genero obj_genero;
-
+    @Column(name = "estadoLibro")
+    private Integer estadoLibro = 1; // 1: Disponible, 0: No disponible;
+    
+    
+    @ManyToOne
+    @JoinColumn(name = "codGenero", insertable = false, updatable = false)
+    private Genero obj_genero;
 }

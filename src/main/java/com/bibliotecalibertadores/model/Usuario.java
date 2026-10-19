@@ -13,11 +13,13 @@ import lombok.Data;
 public class Usuario {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer codUsuario;
-	private String nomUsuario;
-	private String apeUsuario;
-	private String dniUsuario;
-	private String tlfUsuario;
-	private String correoUsuario;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer codUsuario;
+    private String nomUsuario;
+    private String apeUsuario;
+    private String dniUsuario;
+    private String tlfUsuario;
+    private String correoUsuario;
+    private String passwordUsuario;
+
 }

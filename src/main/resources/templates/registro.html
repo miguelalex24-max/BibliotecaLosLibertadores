@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registro - Sistema Bibliotecario</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white d-flex align-items-center justify-content-center vh-100">
+
+    <div class="card bg-secondary text-white p-4" style="width: 400px;">
+        <h3 class="text-center mb-3">Registrarse</h3>
+        
+        <!-- Mensaje de éxito -->
+<div th:if="${mensajeExito}" class="alert alert-success text-center fw-bold" role="alert" th:text="${mensajeExito}"></div>
+
+<!-- Alerta de error (Rojo) -->
+    <div th:if="${mensajeError}" class="alert alert-danger text-center fw-bold" role="alert" th:text="${mensajeError}"></div>
+
+<form th:action="@{/registro}" th:object="${usuario}" method="post">
+    <!-- Campos del formulario -->
+    ...
+</form>
+        
+        <form th:action="@{/registro}" th:object="${usuario}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" th:field="*{nomUsuario}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input type="text" class="form-control" th:field="*{apeUsuario}" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">DNI</label>
+                <input type="text" class="form-control" th:field="*{dniUsuario}" maxlength="8" pattern="[0-9]{8}" title="" placeholder="" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Teléfono</label>
+                <input type="tel" class="form-control" th:field="*{tlfUsuario}" maxlength="9" placeholder="Ingrese su número celular/teléfono" required>
+            </div>
+            
+            <div class="mb-3">
+                <label class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" th:field="*{correoUsuario}" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Contraseña</label>
+                <input type="password" class="form-control" th:field="*{passwordUsuario}" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Registrarse</button>
+        </form>
+        
+        <div class="text-center mt-3">
+            <a href="/login" class="text-white-50 text-decoration-none">¿Ya tienes cuenta? Inicia sesión</a>
+        </div>
+    </div>
+
+</body>
+</html>
