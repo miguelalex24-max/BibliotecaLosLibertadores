@@ -30,12 +30,6 @@ public class UsuarioController {
         model.addAttribute("usuario", usuario);
         return "usuario/iniciousuario"; 
     }
-    
-    // Repertorio de Libros
-    @GetMapping("/libros/repertorio")
-    public String repertorioLibros() {
-        return "usuario/repertoriolibros";
-    }
 
     // Tickets 
     @GetMapping("/tickets")
