@@ -6,4 +6,7 @@ import com.bibliotecalibertadores.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 Usuario findByCorreoUsuarioAndPasswordUsuario(String correo, String password);
+boolean existsByDniUsuario(String dniUsuario);
+
+boolean existsByCorreoUsuario(String correoUsuario);
 }

@@ -1,0 +1,333 @@
+@charset "UTF-8";
+
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    color: #193653;
+    background: #fff;
+}
+
+.menu-principal {
+    background: linear-gradient(110deg, #073b73, #07519a);
+    padding: 12px 0;
+    box-shadow: 0 3px 12px #0002;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.marca .logo {
+    font-size: 43px;
+}
+
+.marca small {
+    display: block;
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.menu-principal .nav-link {
+    color: #fff;
+    padding: 12px 14px;
+    border-radius: 8px;
+    transition: 0.25s;
+}
+
+.menu-principal .nav-link:hover,
+.menu-principal .nav-link.activo {
+    background: #ffffff26;
+    color: white;
+}
+
+.boton-login {
+    color: #073b73;
+    font-weight: 600;
+    border-radius: 8px;
+    padding: 10px 16px;
+}
+
+/* PORTADA */
+.portada {
+    min-height: 390px;
+    display: flex;
+    align-items: center;
+    padding: 45px 7%;
+    background-image:
+        linear-gradient(90deg,
+            #fffffff5 0%,
+            #ffffffed 35%,
+            #ffffff30 75%),
+        url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1800&q=85");
+    background-position: center;
+    background-size: cover;
+}
+
+.portada-contenido {
+    max-width: 570px;
+}
+
+.etiqueta {
+    color: #176d9c;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.portada h1 {
+    color: #073b73;
+    font-size: clamp(34px, 3.5vw, 49px);
+    font-weight: 800;
+    line-height: 1.15;
+    margin: 15px 0;
+}
+
+.portada p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #314a63;
+}
+
+.boton-portada {
+    color: white;
+    background: #07519a;
+    border-radius: 9px;
+    padding: 13px 22px;
+    margin-top: 8px;
+}
+
+.boton-portada:hover {
+    background: #04345f;
+    color: white;
+}
+
+.frase {
+    color: #07519a;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 600;
+    margin-top: 22px;
+}
+
+/* SERVICIOS */
+.seccion-accesos {
+    padding-top: 42px;
+    padding-bottom: 42px;
+}
+
+.encabezado-seccion {
+    margin-bottom: 28px;
+}
+
+.encabezado-seccion h2 {
+    color: #073b73;
+    font-weight: 750;
+}
+
+.encabezado-seccion p {
+    color: #65788a;
+}
+
+.tarjeta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    min-height: 175px;
+    height: 100%;
+    padding: 22px 18px;
+    border-radius: 15px;
+    transition: 0.25s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px #13375b20;
+}
+
+.tarjeta-azul {
+    background: #edf5ff;
+    color: #084783;
+}
+
+.tarjeta-verde {
+    background: #eaf8f1;
+    color: #08764b;
+}
+
+.tarjeta-morada {
+    background: #f2efff;
+    color: #5543a9;
+}
+
+.icono-tarjeta {
+    width: 65px;
+    height: 65px;
+    min-width: 65px;
+    border-radius: 50%;
+    background: currentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icono-tarjeta i {
+    color: white;
+    font-size: 30px;
+}
+
+.texto-tarjeta {
+    flex: 1;
+}
+
+.texto-tarjeta h3 {
+    font-size: 18px;
+    font-weight: 750;
+}
+
+.texto-tarjeta p {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #425a73;
+    margin: 0;
+}
+
+.flecha {
+    font-size: 26px;
+}
+
+/* BENEFICIOS */
+.beneficios {
+    background: #f0f6fc;
+    padding: 30px 0;
+}
+
+.beneficio {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.beneficio > i {
+    color: #084783;
+    font-size: 35px;
+}
+
+.beneficio h4 {
+    color: #073b73;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.beneficio p {
+    color: #536c84;
+    font-size: 12px;
+    margin: 0;
+}
+
+/* PIE DE PÁGINA */
+.pie-pagina {
+    background: linear-gradient(110deg, #073b73, #06477f);
+    color: white;
+    padding: 23px 0;
+}
+
+.datos-biblioteca {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.datos-biblioteca > i {
+    font-size: 38px;
+}
+
+.datos-biblioteca p {
+    font-size: 12px;
+    margin: 5px 0 0;
+}
+
+.copyright {
+    font-size: 12px;
+    text-align: right;
+    margin: 0;
+}
+
+/* CELULARES */
+@media (max-width: 991px) {
+    .menu-principal .navbar-nav {
+        align-items: stretch !important;
+        padding-top: 12px;
+    }
+
+    .portada {
+        padding: 40px 5%;
+    }
+}
+
+@media (max-width: 575px) {
+    .marca {
+        font-size: 16px;
+    }
+
+    .marca .logo {
+        font-size: 34px;
+    }
+
+    .marca small {
+        font-size: 12px;
+    }
+
+    .portada {
+        min-height: 420px;
+        padding: 30px 22px;
+        background-image:
+            linear-gradient(90deg, #fffffff2, #ffffffd9),
+            url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1000&q=80");
+    }
+
+    .portada h1 {
+        font-size: 33px;
+    }
+
+    .portada p {
+        font-size: 15px;
+    }
+
+    .tarjeta {
+        min-height: 145px;
+        padding: 17px 12px;
+        gap: 10px;
+    }
+
+    .icono-tarjeta {
+        width: 50px;
+        min-width: 50px;
+        height: 50px;
+    }
+
+    .icono-tarjeta i {
+        font-size: 24px;
+    }
+
+    .texto-tarjeta h3 {
+        font-size: 16px;
+    }
+
+    .flecha {
+        font-size: 21px;
+    }
+
+    .beneficio {
+        justify-content: flex-start;
+    }
+
+    .copyright {
+        text-align: center;
+    }
+}
