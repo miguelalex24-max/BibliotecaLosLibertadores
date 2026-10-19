@@ -20,4 +20,5 @@ public class Usuario {
     private String dniUsuario;
     private String tlfUsuario;
     private String correoUsuario;
+    private String passwordUsuario;
 }
