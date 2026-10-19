@@ -17,30 +17,29 @@ import lombok.Data;
 @Data
 public class Prestamo {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "codPrestamo")
-    private Integer codPrestamo;
-    
-    private Integer codUsuario;
-    
-    private Integer codLibro;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "codPrestamo")
+	private Integer codPrestamo;
 
-    @Column(name = "fechaPrestamo")
-    private LocalDate fechaPrestamo;
+	private Integer codUsuario;
 
-    @Column(name = "fechaDevolucion")
-    private LocalDate fechaDevolucion;
+	private Integer codLibro;
 
-    @Column(name = "estadoPrestamo")
-    private Integer estadoPrestamo = 1; // 1: Activo, 0: Inactivo
-    
-    @ManyToOne
-    @JoinColumn(name = "codUsuario", insertable = false, updatable = false)
-    private Usuario obj_usuario;
+	@Column(name = "fechaPrestamo")
+	private LocalDate fechaPrestamo;
 
-    @ManyToOne
-    @JoinColumn(name = "codLibro", insertable = false, updatable = false)
-    private Libro obj_libro;
+	@Column(name = "fechaDevolucion")
+	private LocalDate fechaDevolucion;
+
+	@Column(name = "estadoPrestamo")
+	private Integer estadoPrestamo = 1; // 1: Activo, 0: Inactivo
+
+	@ManyToOne
+	@JoinColumn(name = "codUsuario", insertable = false, updatable = false)
+	private Usuario obj_usuario;
+
+	@ManyToOne
+	@JoinColumn(name = "codLibro", insertable = false, updatable = false)
+	private Libro obj_libro;
 }
-

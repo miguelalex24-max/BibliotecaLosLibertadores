@@ -9,5 +9,5 @@ public class InicioController {
 	public String cargarInicio() {
 		return "inicio";
 	}
-	
+
 }

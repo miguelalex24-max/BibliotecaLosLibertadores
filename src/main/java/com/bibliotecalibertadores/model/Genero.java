@@ -12,8 +12,8 @@ import lombok.Data;
 @Data
 public class Genero {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer codGenero;
-    private String nomGenero;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer codGenero;
+	private String nomGenero;
 }
