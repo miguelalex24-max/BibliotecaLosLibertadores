@@ -75,10 +75,10 @@ public class UsuarioController {
 	
 	
     // 1. Menú o Inicio del usuario
-    @GetMapping({"/", "/inicio"})
-    public String inicioUsuario() {
-        return "inicio"; // Esto buscará un archivo inicio.html dentro de templates/usuario/
-    }
+    //@GetMapping({"/", "/inicio"})
+   // public String inicioUsuario() {
+        //return "inicio"; // Esto buscará un archivo inicio.html dentro de templates/usuario/
+    //}
 
     // 2. Repertorio de libros
     @GetMapping("/libros/repertorio")

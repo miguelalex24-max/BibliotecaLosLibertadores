@@ -13,6 +13,7 @@
         <!-- Mensaje de error si las credenciales fallan -->
         <div th:if="${error}" class="alert alert-danger" role="alert" th:text="${error}"></div>
         
+        <!-- Formulario sin th:object para evitar que el controlador requiera el objeto usuario -->
         <form th:action="@{/login}" method="post">
             <div class="mb-3">
                 <label class="form-label">Correo electrónico</label>
@@ -26,7 +27,7 @@
         </form>
         
         <div class="text-center mt-3">
-            <a href="/registro" class="text-white-50 text-decoration-none">¿No tienes cuenta.? Regístrate</a>
+            <a href="/registro" class="text-white-50 text-decoration-none">¿No tienes cuenta? Regístrate</a>
         </div>
     </div>
 

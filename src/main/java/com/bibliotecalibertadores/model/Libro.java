@@ -10,6 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.Data;
 
+
 @Entity
 @Table(name = "Libro")
 @Data
@@ -30,14 +31,15 @@ public class Libro {
 
     @Column(name = "anioPub")
     private Integer anio;
+    
+    @Column(name = "editorial")
+    private String editorial;
 
     @Column(name = "sinopsis")
     private String sinopsis;
 
     @Column(name = "imagenLibro")
     private String imagen;
-    
-    private Integer codEditorial;
 
     @Column(name = "estadoLibro")
     private Integer estadoLibro = 1; // 1: Disponible, 0: No disponible;
@@ -46,10 +48,4 @@ public class Libro {
     @ManyToOne
     @JoinColumn(name = "codGenero", insertable = false, updatable = false)
     private Genero obj_genero;
-    
-    @ManyToOne
-    @JoinColumn(name = "codEditorial", insertable = false, updatable = false)
-    private Editorial obj_editorial;
 }
-
-
