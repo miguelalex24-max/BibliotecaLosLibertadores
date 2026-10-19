@@ -37,6 +37,7 @@ public class Libro {
     private String editorial;
 
 
+
     @Column(name = "sinopsis")
     private String sinopsis;
 
