@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Mis Reservas</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<meta charset="UTF-8">
+<title>Mis Reservas</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 </head>
 <body class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Gestión de Reservas</h2>
-        <div>
-            <a href="/reservas/nueva" class="btn btn-primary me-2">Nueva Reserva</a>
-            <a href="/inicio" class="btn btn-secondary">Volver al Inicio</a>
-        </div>
-    </div>
+	<div class="d-flex justify-content-between align-items-center mb-4">
+		<h2>Gestión de Reservas</h2>
+		<div>
+			<a href="/reservas/nueva" class="btn btn-primary me-2">Nueva
+				Reserva</a> <a href="/inicio" class="btn btn-secondary">Volver al
+				Inicio</a>
+		</div>
+	</div>
 
-    <table class="table table-striped shadow-sm">
-        <thead class="table-dark">
-            <tr>
-                <th>Código</th>
-                <th>Fecha Préstamo</th>
-                <th>Fecha Devolución</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>2026-10-18</td>
-                <td>2026-10-25</td>
-                <td>
-                    <a href="/reservas/editar" class="btn btn-sm btn-warning">Editar</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+	<table class="table table-striped shadow-sm">
+		<thead class="table-dark">
+			<tr>
+				<th>Código</th>
+				<th>Fecha Préstamo</th>
+				<th>Fecha Devolución</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>2026-10-18</td>
+				<td>2026-10-25</td>
+				<td><a href="/reservas/editar" class="btn btn-sm btn-warning">Editar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
 </body>
 </html>
