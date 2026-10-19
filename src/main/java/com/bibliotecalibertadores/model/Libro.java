@@ -32,7 +32,7 @@ public class Libro {
     private Integer anio;
     
     @Column(name = "editorial")
-    private Integer editorial;
+    private String editorial;
 
     @Column(name = "sinopsis")
     private String sinopsis;
