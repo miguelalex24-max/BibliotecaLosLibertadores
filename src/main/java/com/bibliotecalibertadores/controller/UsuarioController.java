@@ -16,45 +16,45 @@ import jakarta.servlet.http.HttpSession;
 @Controller
 public class UsuarioController {
 
-    @Autowired
-    private UsuarioRepository repUsuarios;
+	@Autowired
+	private UsuarioRepository repUsuarios;
 
-    @GetMapping("/inicio")
-    public String inicioUsuario(HttpSession session, Model model) {
-        Usuario usuario = (Usuario) session.getAttribute("logueo");
-        
-        if (usuario == null) {
-            return "redirect:/login"; 
-        }
-        
-        model.addAttribute("usuario", usuario);
-        return "usuario/iniciousuario"; 
-    }
+	@GetMapping("/inicio")
+	public String inicioUsuario(HttpSession session, Model model) {
+		Usuario usuario = (Usuario) session.getAttribute("logueo");
 
-    // Tickets 
-    @GetMapping("/tickets")
-    public String listarTickets() {
-        return "usuario/tickets";
-    }
+		if (usuario == null) {
+			return "redirect:/login";
+		}
 
-    @GetMapping("/tickets/nuevo")
-    public String crearTicket() {
-        return "usuario/crearticket"; 
-    }
+		model.addAttribute("usuario", usuario);
+		return "usuario/iniciousuario";
+	}
 
-    // Reservas
-    @GetMapping("/reservas")
-    public String listarReservas() {
-        return "usuario/reservas"; 
-    }
+	// Tickets
+	@GetMapping("/tickets")
+	public String listarTickets() {
+		return "usuario/tickets";
+	}
 
-    @GetMapping("/reservas/nueva")
-    public String crearReserva() {
-        return "usuario/crearreservas"; 
-    }
+	@GetMapping("/tickets/nuevo")
+	public String crearTicket() {
+		return "usuario/crearticket";
+	}
 
-    @GetMapping("/reservas/editar")
-    public String editarReserva() {
-        return "usuario/crudreserva"; 
-    }
+	// Reservas
+	@GetMapping("/reservas")
+	public String listarReservas() {
+		return "usuario/reservas";
+	}
+
+	@GetMapping("/reservas/nueva")
+	public String crearReserva() {
+		return "usuario/crearreservas";
+	}
+
+	@GetMapping("/reservas/editar")
+	public String editarReserva() {
+		return "usuario/crudreserva";
+	}
 }
