@@ -1,18 +1,17 @@
 @charset "UTF-8";
 
-
 body {
 	margin: 0;
 	font-family: "Segoe UI", Arial, sans-serif;
-	color: rgb(217, 67, 23);
+	color: #1e293b;
 	background: #fff;
 }
 
 .menu-principal {
-	background: #d12b1f;
-	background: linear-gradient(90deg, rgba(209, 43, 31, 1) 0%, rgba(168, 95, 17, 1) 50%, rgba(237, 219, 83, 1) 100%);
-	padding: 12px 0;
-	box-shadow: 0 3px 12px #0002;
+	background: #0066ff;
+	background: linear-gradient(90deg, #0066ff 0%, #0052cc 50%, #0033aa 100%);
+	padding: 12px 2;
+	box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
 }
 
 .marca {
@@ -35,25 +34,24 @@ body {
 
 .menu-principal .nav-link {
 	color: #fff;
-	padding: 12px 14px;
+	padding: 10px 14px;
 	border-radius: 8px;
 	transition: 0.25s;
 }
 
 .menu-principal .nav-link:hover,
 .menu-principal .nav-link.activo {
-	background: #ffffff26;
+	background: rgba(255, 255, 255, 0.15);
 	color: white;
 }
 
 .boton-login {
-	color: #d12b1f;
+	color: #0066ff;
 	font-weight: 600;
 	border-radius: 8px;
 	padding: 10px 16px;
 }
 
-/* PORTADA */
 .portada {
 	min-height: 390px;
 	display: flex;
@@ -61,9 +59,9 @@ body {
 	padding: 45px 7%;
 	background-image:
 		linear-gradient(90deg,
-			#fffffff5 0%,
-			#ffffffed 35%,
-			#ffffff30 75%),
+			rgba(255, 255, 255, 0.96) 0%,
+			rgba(255, 255, 255, 0.93) 35%,
+			rgba(255, 255, 255, 0.2) 75%),
 		url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1800&q=85");
 	background-position: center;
 	background-size: cover;
@@ -74,14 +72,14 @@ body {
 }
 
 .etiqueta {
-	color: rgb(211, 56, 29);
+	color: #0066ff;
 	font-size: 12px;
 	font-weight: 800;
 	letter-spacing: 2px;
 }
 
 .portada h1 {
-	color: rgb(233, 86, 16);
+	color: #0044cc;
 	font-size: clamp(34px, 3.5vw, 49px);
 	font-weight: 800;
 	line-height: 1.15;
@@ -91,31 +89,32 @@ body {
 .portada p {
 	font-size: 17px;
 	line-height: 1.8;
-	color: rgb(233, 86, 16);
+	color: #334155;
 }
 
 .boton-portada {
 	color: white;
-	background: rgb(233, 86, 16);
+	background: #0066ff;
 	border-radius: 9px;
 	padding: 13px 22px;
 	margin-top: 8px;
+	border: none;
+	transition: background 0.2s;
 }
 
 .boton-portada:hover {
-	background: rgb(233, 86, 16);
+	background: #0052cc;
 	color: white;
 }
 
 .frase {
-	color: rgb(233, 86, 16);
+	color: #0052cc;
 	font-size: 18px;
 	font-style: italic;
 	font-weight: 600;
 	margin-top: 22px;
 }
 
-/* SERVICIOS */
 .seccion-accesos {
 	padding-top: 42px;
 	padding-bottom: 42px;
@@ -126,7 +125,7 @@ body {
 }
 
 .encabezado-seccion h2 {
-	color: rgb(226, 56, 14);
+	color: #0044cc;
 	font-weight: 750;
 }
 
@@ -147,7 +146,7 @@ body {
 
 .tarjeta:hover {
 	transform: translateY(-5px);
-	box-shadow: 0 12px 25px rgb(234, 104, 26);
+	box-shadow: 0 12px 25px rgba(0, 102, 255, 0.2);
 }
 
 .tarjeta-azul {
@@ -215,27 +214,26 @@ body {
 }
 
 .beneficio>i {
-	color: rgb(227, 54, 23);
+	color: #0066ff;
 	font-size: 35px;
 }
 
 .beneficio h4 {
-	color: #d12b1f;
+	color: #0044cc;
 	font-size: 15px;
 	font-weight: 750;
 }
 
 .beneficio p {
-	color: rgb(209, 43, 31);
+	color: #0052cc;
 	font-size: 12px;
 	margin: 0;
 }
 
 /* PIE DE PÁGINA */
 .pie-pagina {
-	background: #d12b1f;
-	background: linear-gradient(90deg, rgba(209, 43, 31, 1) 0%,
-	 rgba(168, 95, 17, 1) 50%, rgba(237, 219, 83, 1) 100%);
+	background: #0066ff;
+	background: linear-gradient(90deg, #0066ff 0%, #0052cc 50%, #0033aa 100%);
 	color: white;
 	padding: 23px 0;
 }
@@ -290,7 +288,7 @@ body {
 		min-height: 420px;
 		padding: 30px 22px;
 		background-image:
-			linear-gradient(90deg, #fffffff2, #ffffffd9),
+			linear-gradient(90deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85)),
 			url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1000&q=80");
 	}
 

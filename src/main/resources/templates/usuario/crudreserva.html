@@ -2,11 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Editar Reserva - Sistema Bibliotecario</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+<title> Reserva - Sistema Bibliotecario</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" th:href="@{/css/estilosinicio.css}">
 </head>
+
 <body class="container mt-5" style="max-width: 600px;">
-	<h3 class="mb-4">Editar Reserva.</h3>
+	<h3 class="mb-4">Editar Datos de la Reserva</h3>
 	<form action="/reservas" method="get" class="card card-body shadow-sm">
 		<div class="mb-3">
 			<label class="form-label">Código de Préstamo:</label>

@@ -10,10 +10,8 @@
     <div class="card bg-secondary text-white p-4" style="width: 400px;">
         <h3 class="text-center mb-3">Iniciar Sesión</h3>
         
-        <!-- Mensaje de error si las credenciales fallan -->
         <div th:if="${error}" class="alert alert-danger" role="alert" th:text="${error}"></div>
         
-        <!-- Formulario sin th:object para evitar que el controlador requiera el objeto usuario -->
         <form th:action="@{/login}" method="post">
             <div class="mb-3">
                 <label class="form-label">Correo electrónico</label>
