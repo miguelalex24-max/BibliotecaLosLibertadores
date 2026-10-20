@@ -40,21 +40,27 @@ public class TicketController {
 	}
 
 	@PostMapping("/guardar")
-	public String guardar(@RequestParam("asunto") String asunto, @RequestParam("descripcion") String descripcion,
-			HttpSession session, RedirectAttributes redirectAttrs) {
+	public String guardar(@RequestParam("asunto") String asunto, @RequestParam(
+			"descripcion") String descripcion, HttpSession session, 
+			RedirectAttributes redirectAttrs) {
 
 		Usuario usuario = (Usuario) session.getAttribute("logueo");
 		if (usuario == null) return "redirect:/login";
 
 		try {
 			Ticket ticket = new Ticket();
+			ticket.setCodUsuario(usuario.getCodUsuario());
+			ticket.setAsunto(asunto);
+			ticket.setDescripcion(descripcion);
+			ticket.setFechaTicket(LocalDate.now());
+			ticket.setEstadoTicket(1);
 			repTickets.save(ticket);
 
 			redirectAttrs.addFlashAttribute("mensaje", "TICKET REGISTRADO CORRECTAMENTE");
-			redirectAttrs.addFlashAttribute("tipoMensaje", "exito");
+			redirectAttrs.addFlashAttribute("tipoMensaje", "alert alert-success");
 		} catch (Exception e) {
 			redirectAttrs.addFlashAttribute("mensaje", "NO SE PUDO REGISTRAR EL TICKET");
-			redirectAttrs.addFlashAttribute("tipoMensaje", "error");
+			redirectAttrs.addFlashAttribute("tipoMensaje", "alert alert-danger");
 		}
 		return "redirect:/tickets";
 	}

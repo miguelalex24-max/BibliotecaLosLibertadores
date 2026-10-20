@@ -25,6 +25,10 @@ import jakarta.transaction.Transactional;
 @Controller
 @RequestMapping("/reservas")
 public class ReservaController {
+	
+	// PENDIENTE = 1
+	// ATENDIDA = 2
+	// CANCELADA = 0
 
 	@Autowired
 	private ReservasRepository repReservas;
@@ -42,7 +46,7 @@ public class ReservaController {
 	}
 
 	@GetMapping("/nueva")
-	public String nueva(@RequestParam Integer codLibro, HttpSession session,
+	public String nueva(@RequestParam(value = "codLibro", required = false) Integer codLibro, HttpSession session,
 			Model model) {
 		if (session.getAttribute("logueo") == null) return "redirect:/login";
 
@@ -64,15 +68,15 @@ public class ReservaController {
 
 		String error = validarFechas(fechaPrestamo, fechaDevolucion);
 		if (error != null) {
-			return volverConError(redirectAttrs, error, "redirect:/reservas/nueva?codLibro=" + codLibro);
+			return regresarError(redirectAttrs, error, "redirect:/reservas/nueva?codLibro=" + codLibro);
 		}
 
 		Libro libro = repLibros.findById(codLibro).orElse(null);
 		if (libro == null || !Integer.valueOf(1).equals(libro.getEstadoLibro())) {
-			return volverConError(redirectAttrs, "EL LIBRO YA NO ESTÁ DISPONIBLE", "redirect:/reservas/nueva");
+			return regresarError(redirectAttrs, "EL LIBRO YA NO ESTÁ DISPONIBLE", "redirect:/reservas/nueva");
 		}
 
-		libro.setEstadoLibro(0); // el libro reservado pasa a "No disponible"
+		libro.setEstadoLibro(0);
 		repLibros.save(libro);
 
 		Reserva reserva = new Reserva();
@@ -85,52 +89,7 @@ public class ReservaController {
 		repReservas.save(reserva);
 
 		redirectAttrs.addFlashAttribute("mensaje", "RESERVA REGISTRADA CORRECTAMENTE");
-		redirectAttrs.addFlashAttribute("tipoMensaje", "exito");
-		return "redirect:/reservas";
-	}
-
-	@GetMapping("/editar/{id}")
-	public String editar(@PathVariable("id") Integer id, HttpSession session, Model model,
-			RedirectAttributes redirectAttrs) {
-
-		Usuario usuario = (Usuario) session.getAttribute("logueo");
-		if (usuario == null) return "redirect:/login";
-
-		Reserva reserva = repReservas.findById(id).orElse(null);
-		if (!esEditable(reserva, usuario)) {
-			return volverConError(redirectAttrs, "LA RESERVA NO SE PUEDE EDITAR", "redirect:/reservas");
-		}
-
-		model.addAttribute("reserva", reserva);
-		model.addAttribute("hoy", LocalDate.now());
-		return "usuario/crudreserva";
-	}
-
-	@PostMapping("/actualizar")
-	public String actualizar(@RequestParam("codReserva") Integer codReserva,
-			@RequestParam("fechaPrestamo") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaPrestamo,
-			@RequestParam("fechaDevolucion") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaDevolucion,
-			HttpSession session, RedirectAttributes redirectAttrs) {
-
-		Usuario usuario = (Usuario) session.getAttribute("logueo");
-		if (usuario == null) return "redirect:/login";
-
-		Reserva reserva = repReservas.findById(codReserva).orElse(null);
-		if (!esEditable(reserva, usuario)) {
-			return volverConError(redirectAttrs, "LA RESERVA NO SE PUEDE EDITAR", "redirect:/reservas");
-		}
-
-		String error = validarFechas(fechaPrestamo, fechaDevolucion);
-		if (error != null) {
-			return volverConError(redirectAttrs, error, "redirect:/reservas/editar/" + codReserva);
-		}
-
-		reserva.setFechaPrestamo(fechaPrestamo);
-		reserva.setFechaDevolucion(fechaDevolucion);
-		repReservas.save(reserva);
-
-		redirectAttrs.addFlashAttribute("mensaje", "RESERVA ACTUALIZADA CORRECTAMENTE");
-		redirectAttrs.addFlashAttribute("tipoMensaje", "exito");
+		redirectAttrs.addFlashAttribute("tipoMensaje", "alert alert-success");
 		return "redirect:/reservas";
 	}
 
@@ -142,26 +101,29 @@ public class ReservaController {
 		if (usuario == null) return "redirect:/login";
 
 		Reserva reserva = repReservas.findById(id).orElse(null);
-		if (!esEditable(reserva, usuario)) {
-			return volverConError(redirectAttrs, "LA RESERVA NO SE PUEDE CANCELAR", "redirect:/reservas");
+		if (!propUsuario(reserva, usuario) || ! equals(reserva.getEstadoReserva())) {
+			return regresarError(redirectAttrs, "LA RESERVA NO SE PUEDE CANCELAR", "redirect:/reservas");
 		}
 
 		reserva.setEstadoReserva(0);
 		repReservas.save(reserva);
+		dispLibro(reserva.getCodLibro());
 
-		repLibros.findById(reserva.getCodLibro()).ifPresent(libro -> {
+		redirectAttrs.addFlashAttribute("mensaje", "RESERVA CANCELADA");
+		redirectAttrs.addFlashAttribute("tipoMensaje", "alert alert-success");
+		return "redirect:/reservas";
+	}
+
+	/// Complementos
+	private boolean propUsuario(Reserva reserva, Usuario usuario) {
+		return reserva != null && reserva.getCodUsuario().equals(usuario.getCodUsuario());
+	}
+
+	private void dispLibro(Integer codLibro) {
+		repLibros.findById(codLibro).ifPresent(libro -> {
 			libro.setEstadoLibro(1);
 			repLibros.save(libro);
 		});
-
-		redirectAttrs.addFlashAttribute("mensaje", "RESERVA CANCELADA");
-		redirectAttrs.addFlashAttribute("tipoMensaje", "exito");
-		return "redirect:/reservas";
-	}
-	
-	private boolean esEditable(Reserva reserva, Usuario usuario) {
-		return reserva != null && reserva.getCodUsuario().equals(usuario.getCodUsuario())
-				&& Integer.valueOf(1).equals(reserva.getEstadoReserva());
 	}
 
 	private String validarFechas(LocalDate prestamo, LocalDate devolucion) {
@@ -170,7 +132,7 @@ public class ReservaController {
 		return null;
 	}
 
-	private String volverConError(RedirectAttributes redirectAttrs, String mensaje, String destino) {
+	private String regresarError(RedirectAttributes redirectAttrs, String mensaje, String destino) {
 		redirectAttrs.addFlashAttribute("mensaje", mensaje);
 		redirectAttrs.addFlashAttribute("tipoMensaje", "error");
 		return destino;

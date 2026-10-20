@@ -1,0 +1,25 @@
+.libro-card {
+	height: 100%;
+	min-height: 230px;
+	border: 1px solid #dee2e6;
+	border-radius: 12px;
+	overflow: hidden;
+	transition: transform .15s ease, box-shadow .15s ease;
+}
+.libro-card:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+.libro-portada {
+	width: 140px;
+	min-width: 140px;
+	object-fit: cover;
+	background: #f1f3f5;
+}
+.libro-titulo, .libro-sinopsis {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+.libro-titulo { -webkit-line-clamp: 2; line-clamp: 2; }
+.libro-sinopsis { -webkit-line-clamp: 3; line-clamp: 3; font-size: .85rem; }

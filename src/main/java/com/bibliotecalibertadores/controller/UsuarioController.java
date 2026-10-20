@@ -30,31 +30,4 @@ public class UsuarioController {
 		model.addAttribute("usuario", usuario);
 		return "usuario/iniciousuario";
 	}
-
-	// Tickets
-	@GetMapping("/tickets")
-	public String listarTickets() {
-		return "usuario/tickets";
-	}
-
-	@GetMapping("/tickets/nuevo")
-	public String crearTicket() {
-		return "usuario/crearticket";
-	}
-
-	// Reservas
-	@GetMapping("/reservas")
-	public String listarReservas() {
-		return "usuario/reservas";
-	}
-
-	@GetMapping("/reservas/nueva")
-	public String crearReserva() {
-		return "usuario/crearreservas";
-	}
-
-	@GetMapping("/reservas/editar")
-	public String editarReserva() {
-		return "usuario/crudreserva";
-	}
 }
