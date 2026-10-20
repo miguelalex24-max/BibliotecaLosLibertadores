@@ -33,7 +33,7 @@ public class Prestamo {
 	private LocalDate fechaDevolucion;
 
 	@Column(name = "estadoPrestamo")
-	private Integer estadoPrestamo = 1; // 1: Activo, 0: Inactivo
+	private Integer estadoPrestamo = 1; // Activo por defecto
 
 	@ManyToOne
 	@JoinColumn(name = "codUsuario", insertable = false, updatable = false)

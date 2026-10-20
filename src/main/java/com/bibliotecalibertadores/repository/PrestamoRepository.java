@@ -1,5 +1,7 @@
 package com.bibliotecalibertadores.repository;
 
-public interface PrestamoRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.bibliotecalibertadores.model.Prestamo;
 
+public interface PrestamoRepository extends JpaRepository<Prestamo, Integer> {
 }

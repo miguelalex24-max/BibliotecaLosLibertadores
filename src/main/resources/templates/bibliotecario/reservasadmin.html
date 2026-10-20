@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Mis Reservas - Sistema Bibliotecario</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" th:href="@{/css/estilosinicio.css}">
+</head>
+<body>
+
+	<!-- Nav Bar -->
+	<nav class="navbar navbar-expand-lg navbar-dark menu-principal">
+		<div class="container-fluid px-lg-5">
+
+			<a class="navbar-brand marca" th:href="@{/inicio}"> <i
+				class="bi bi-book-half logo"></i> <span> Biblioteca Comunal <small>"Los
+						Libertadores"</small>
+			</span>
+			</a>
+
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#menuBiblioteca"
+				aria-controls="menuBiblioteca" aria-expanded="false"
+				aria-label="Abrir menú">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="menuBiblioteca">
+				<ul class="navbar-nav ms-auto align-items-lg-center">
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/inicio}"> <i class="bi bi-house-door-fill"></i>
+							Inicio
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/libros/repertorio}"> <i class="bi bi-book"></i>
+							Repertorio de libros
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link" th:href="@{/tickets}">
+							<i class="bi bi-ticket-perforated-fill"></i> Generar ticket
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link activo"
+						th:href="@{/reservas}"> <i class="bi bi-calendar-check"></i>
+							Reservas
+					</a></li>
+
+					<li class="nav-item ms-lg-3"><a
+						class="btn btn-light boton-login" th:href="@{/login}"> <i
+							class="bi bi-person-circle"></i> Salir
+					</a></li>
+
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+
+	<div
+		class="container mt-4 d-flex justify-content-between align-items-center mt-4">
+		<h2>Gestión de Reservas</h2>
+	</div>
+
+	<table class="container mt-4 table table-striped shadow-sm">
+		<thead class="table-dark">
+			<tr>
+				<th>Código</th>
+				<th>Fecha Préstamo</th>
+				<th>Fecha Devolución</th>
+				<th>Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td><a href="/reservas/editar" class="btn btn-sm btn-warning">Editar</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- Footer -->
+	<footer class="pie-pagina">
+		<div
+			class="container d-flex flex-column flex-md-row
+                    justify-content-between align-items-center gap-3">
+
+			<div class="datos-biblioteca">
+				<i class="bi bi-book-half"></i>
+				<div>
+					<strong>Biblioteca Comunal "Los Libertadores"</strong>
+					<p>Av. Mal. de la Amistad - El Agustino</p>
+				</div>
+			</div>
+
+			<p class="copyright">© 2026 Sistema Bibliotecario. Al servicio de
+				la comunidad.</p>
+
+		</div>
+	</footer>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+		
+	</script>
+
+</body>
+</html>
