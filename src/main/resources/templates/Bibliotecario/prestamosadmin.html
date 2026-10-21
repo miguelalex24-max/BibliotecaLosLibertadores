@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Prestamos - Intranet Bibliotecario</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<link rel="stylesheet" th:href="@{/css/estilosinicioadmin.css}">
+</head>
+<body>
+
+	<!-- Nav Bar -->
+	<nav th:fragment="menu(activo)"
+		class="navbar navbar-expand-lg navbar-dark menu-principal">
+		<div class="container-fluid px-lg-5">
+
+			<a class="navbar-brand marca" th:href="@{/intranet}"> <i
+				class="bi bi-book-half logo"></i> <span> Intranet <small>Biblioteca
+						Comunal "Los Libertadores"</small>
+			</span>
+			</a>
+
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#menuBiblioteca"
+				aria-controls="menuBiblioteca" aria-expanded="false"
+				aria-label="Abrir menú">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="menuBiblioteca">
+				<ul class="navbar-nav ms-auto align-items-lg-center">
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet}"> <i class="bi bi-house-door-fill"></i>
+							Inicio
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/libros}"> <i class="bi bi-book"></i>
+							Libros
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link activo"
+						th:href="@{/intranet/prestamos}"> <i
+							class="bi bi-journal-bookmark"></i> Préstamos
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/tickets}"> <i
+							class="bi bi-ticket-perforated-fill"></i> Tickets
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/usuarios}"> <i class="bi bi-people-fill"></i>
+							Usuarios
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/reportes}"> <i
+							class="bi bi-bar-chart-fill"></i> Reportes
+					</a></li>
+
+					<li class="nav-item ms-lg-3"><a
+						class="btn btn-light boton-login" th:href="@{/login}"> <i
+							class="bi bi-person-circle"></i> Salir
+					</a></li>
+
+				</ul>
+			</div>
+
+		</div>
+	</nav>
+
+	<div
+		class="container mt-4 d-flex justify-content-between align-items-center mt-4">
+		<h2>Préstamos</h2>
+		<span class="badge text-bg-secondary fs-6"
+			th:text="'Total: ' + ${#lists.size(lstPrestamos)}"></span>
+	</div>
+
+	<table class="container mt-4 table table-striped shadow-sm">
+		<thead class="table-dark">
+			<tr>
+				<th>N°</th>
+				<th>Usuario</th>
+				<th>Libro</th>
+				<th>Fecha de préstamo</th>
+				<th>Fecha de devolución</th>
+				<th>Estado</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="p : ${lstPrestamos}">
+				<td th:text="${p.codPrestamo}"></td>
+				<td>
+					<div class="fw-semibold"
+						th:text="${p.obj_usuario != null ? p.obj_usuario.nomUsuario + ' ' + p.obj_usuario.apeUsuario : 'Usuario #' + p.codUsuario}"></div>
+					<small class="text-muted"
+					th:text="${p.obj_usuario != null and p.obj_usuario.dniUsuario != null ? 'DNI: ' + p.obj_usuario.dniUsuario : ''}"></small>
+				</td>
+				<td>
+					<div class="fw-semibold"
+						th:text="${p.obj_libro != null ? p.obj_libro.nombre : 'Libro #' + p.codLibro}"></div>
+					<small class="text-muted"
+					th:text="${p.obj_libro != null ? p.obj_libro.autor : ''}"></small>
+				</td>
+				<td th:text="${#temporals.format(p.fechaPrestamo, 'dd/MM/yyyy')}"></td>
+				<td th:text="${#temporals.format(p.fechaDevolucion, 'dd/MM/yyyy')}"></td>
+				<td><span th:if="${p.estadoPrestamo == 0}"
+					class="badge bg-success">Devuelto</span> <span
+					th:if="${p.estadoPrestamo == 1 and p.fechaDevolucion != null and p.fechaDevolucion.isBefore(hoy)}"
+					class="badge bg-danger">Vencido</span> <span
+					th:if="${p.estadoPrestamo == 1 and (p.fechaDevolucion == null or !p.fechaDevolucion.isBefore(hoy))}"
+					class="badge bg-warning text-dark">Prestado</span></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- Footer -->
+	<footer class="pie-pagina">
+		<div
+			class="container d-flex flex-column flex-md-row
+                    justify-content-between align-items-center gap-3">
+
+			<div class="datos-biblioteca">
+				<i class="bi bi-book-half"></i>
+				<div>
+					<strong>Biblioteca Comunal "Los Libertadores"</strong>
+					<p>Av. Mal. de la Amistad - El Agustino</p>
+				</div>
+			</div>
+
+			<p class="copyright">© 2026 Sistema Bibliotecario. Al servicio de
+				la comunidad.</p>
+
+		</div>
+	</footer>
+
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+		
+	</script>
+
+</body>
+</html>
