@@ -56,50 +56,67 @@
 
 		<div class="text-center encabezado-seccion">
 			<h2>¿Qué deseas hacer hoy?</h2>
-			<p>Selecciona uno de nuestros servicios bibliotecarios.</p>
+			<p>Selecciona uno de los servicios de la intranet.</p>
 		</div>
 
 		<div class="row g-4">
 
 			<div class="col-12 col-md-6 col-lg-4">
 				<a th:href="@{/intranet/libros}" class="tarjeta tarjeta-azul">
-
 					<div class="icono-tarjeta">
 						<i class="bi bi-book-half"></i>
 					</div>
-
 					<div class="texto-tarjeta">
-						<h3>Repertorio de libros</h3>
-						<p>Consulta nuestro catálogo y encuentra tu próxima lectura.</p>
+						<h3>Libros</h3>
+						<p>Consulta el catálogo y la disponibilidad de cada libro.</p>
+					</div> <i class="bi bi-arrow-right-circle flecha"></i>
+				</a>
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-4">
+				<a th:href="@{/intranet/prestamos}" class="tarjeta tarjeta-morada">
+					<div class="icono-tarjeta">
+						<i class="bi bi-journal-bookmark-fill"></i>
+					</div>
+					<div class="texto-tarjeta">
+						<h3>Préstamos</h3>
+						<p>Revisa los préstamos realizados por los usuarios.</p>
 					</div> <i class="bi bi-arrow-right-circle flecha"></i>
 				</a>
 			</div>
 
 			<div class="col-12 col-md-6 col-lg-4">
 				<a th:href="@{/intranet/tickets}" class="tarjeta tarjeta-verde">
-
 					<div class="icono-tarjeta">
 						<i class="bi bi-ticket-perforated-fill"></i>
 					</div>
-
 					<div class="texto-tarjeta">
-						<h3>Generar ticket</h3>
-						<p>Accede a la gestión de tickets de atención bibliotecaria.</p>
+						<h3>Tickets</h3>
+						<p>Consulta los tickets de atención enviados por los usuarios.</p>
 					</div> <i class="bi bi-arrow-right-circle flecha"></i>
 				</a>
 			</div>
 
 			<div class="col-12 col-md-6 col-lg-4">
-				<a th:href="@{/intranet/reservas}" class="tarjeta tarjeta-morada">
-
+				<a th:href="@{/intranet/usuarios}" class="tarjeta tarjeta-azul">
 					<div class="icono-tarjeta">
-						<i class="bi bi-calendar-check-fill"></i>
+						<i class="bi bi-people-fill"></i>
 					</div>
-
 					<div class="texto-tarjeta">
-						<h3>Reservas</h3>
-						<p>Consulta y administra tus reservas de libros de forma
-							sencilla.</p>
+						<h3>Usuarios</h3>
+						<p>Lista de los usuarios registrados en la biblioteca.</p>
+					</div> <i class="bi bi-arrow-right-circle flecha"></i>
+				</a>
+			</div>
+
+			<div class="col-12 col-md-6 col-lg-4">
+				<a th:href="@{/intranet/reportes}" class="tarjeta tarjeta-morada">
+					<div class="icono-tarjeta">
+						<i class="bi bi-bar-chart-fill"></i>
+					</div>
+					<div class="texto-tarjeta">
+						<h3>Reportes</h3>
+						<p>Genera y consulta los reportes del sistema.</p>
 					</div> <i class="bi bi-arrow-right-circle flecha"></i>
 				</a>
 			</div>

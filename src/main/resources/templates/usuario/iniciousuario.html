@@ -48,7 +48,7 @@
 
 					<li class="nav-item ms-lg-3"><a
 						class="btn btn-light boton-login" th:href="@{/login}"> <i
-							class="bi bi-person-circle"></i> Salir
+							class="bi bi-person-circle"></i> Cerrar sesión
 					</a></li>
 
 				</ul>
@@ -68,116 +68,47 @@
 			<p>Descubre nuevas historias, consulta nuestro repertorio de
 				libros y disfruta de los recursos de tu biblioteca comunal.</p>
 
-			<a th:href="@{/libros/repertorio}" class="btn boton-portada"> <i
-				class="bi bi-search"></i> Explorar libros
-			</a>
-
 			<div class="frase">
 				<i class="bi bi-book-half"></i> Leer es construir un mejor futuro.
 			</div>
 
 		</div>
+
+		<!-- SERVICIO -->
+		<div class="portada-accesos">
+
+			<a th:href="@{/libros/repertorio}" class="tarjeta tarjeta-azul">
+				<div class="icono-tarjeta">
+					<i class="bi bi-book-half"></i>
+				</div>
+				<div class="texto-tarjeta">
+					<h3>Repertorio de libros</h3>
+					<p>Consulta nuestro catálogo y encuentra tu próxima lectura.</p>
+				</div> <i class="bi bi-arrow-right-circle flecha"></i>
+			</a>
+
+			<a th:href="@{/tickets}" class="tarjeta tarjeta-verde">
+				<div class="icono-tarjeta">
+					<i class="bi bi-ticket-perforated-fill"></i>
+				</div>
+				<div class="texto-tarjeta">
+					<h3>Generar ticket</h3>
+					<p>Accede a la gestión de tickets de atención bibliotecaria.</p>
+				</div> <i class="bi bi-arrow-right-circle flecha"></i>
+			</a>
+
+			<a th:href="@{/prestamos}" class="tarjeta tarjeta-morada">
+				<div class="icono-tarjeta">
+					<i class="bi bi-journal-bookmark-fill"></i>
+				</div>
+				<div class="texto-tarjeta">
+					<h3>Mis préstamos</h3>
+					<p>Revisa el historial de los libros que has pedido prestados.</p>
+				</div> <i class="bi bi-arrow-right-circle flecha"></i>
+			</a>
+
+		</div>
 	</header>
-
-	<!-- SERVICIOS -->
-	<main class="container seccion-accesos">
-
-		<div class="text-center encabezado-seccion">
-			<h2>¿Qué deseas hacer hoy?</h2>
-			<p>Selecciona uno de nuestros servicios bibliotecarios.</p>
-		</div>
-
-		<div class="row g-4">
-
-			<!-- REPERTORIO -->
-			<div class="col-12 col-md-6 col-lg-4">
-				<a th:href="@{/libros/repertorio}" class="tarjeta tarjeta-azul">
-
-					<div class="icono-tarjeta">
-						<i class="bi bi-book-half"></i>
-					</div>
-
-					<div class="texto-tarjeta">
-						<h3>Repertorio de libros</h3>
-						<p>Consulta nuestro catálogo y encuentra tu próxima lectura.</p>
-					</div> <i class="bi bi-arrow-right-circle flecha"></i>
-				</a>
-			</div>
-
-			<!-- TICKETS -->
-			<div class="col-12 col-md-6 col-lg-4">
-				<a th:href="@{/tickets}" class="tarjeta tarjeta-verde">
-
-					<div class="icono-tarjeta">
-						<i class="bi bi-ticket-perforated-fill"></i>
-					</div>
-
-					<div class="texto-tarjeta">
-						<h3>Generar ticket</h3>
-						<p>Accede a la gestión de tickets de atención bibliotecaria.</p>
-					</div> <i class="bi bi-arrow-right-circle flecha"></i>
-				</a>
-			</div>
-
-			<!-- RESERVAS -->
-			<div class="col-12 col-md-6 col-lg-4">
-				<a th:href="@{/reservas}" class="tarjeta tarjeta-morada">
-
-					<div class="icono-tarjeta">
-						<i class="bi bi-calendar-check-fill"></i>
-					</div>
-
-					<div class="texto-tarjeta">
-						<h3>Reservas</h3>
-						<p>Consulta y administra tus reservas de libros de forma
-							sencilla.</p>
-					</div> <i class="bi bi-arrow-right-circle flecha"></i>
-				</a>
-			</div>
-
-		</div>
-	</main>
-
-	<!-- BENEFICIOS -->
-	<section class="beneficios">
-		<div class="container">
-			<div class="row g-4">
-
-				<div class="col-6 col-lg-3 beneficio">
-					<i class="bi bi-journals"></i>
-					<div>
-						<h4>Amplio catálogo</h4>
-						<p>Descubre nuevas lecturas.</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-lg-3 beneficio">
-					<i class="bi bi-people-fill"></i>
-					<div>
-						<h4>Para todos</h4>
-						<p>Un espacio para la comunidad.</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-lg-3 beneficio">
-					<i class="bi bi-shield-check"></i>
-					<div>
-						<h4>Fácil y seguro</h4>
-						<p>Servicios organizados.</p>
-					</div>
-				</div>
-
-				<div class="col-6 col-lg-3 beneficio">
-					<i class="bi bi-heart-fill"></i>
-					<div>
-						<h4>Pasión por leer</h4>
-						<p>El conocimiento nos une.</p>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</section>
 
 	<!-- PIE DE PÁGINA -->
 	<footer class="pie-pagina">
@@ -201,6 +132,7 @@
 
 	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+		
 	</script>
 
 </body>

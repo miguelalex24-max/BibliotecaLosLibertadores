@@ -14,43 +14,60 @@
 
 <body>
 	<!-- Nav Bar -->
-	<nav class="navbar navbar-expand-lg navbar-dark menu-principal">
+	<nav th:fragment="menu(activo)"
+		class="navbar navbar-expand-lg navbar-dark menu-principal">
 		<div class="container-fluid px-lg-5">
 
-			<a class="navbar-brand marca" th:href="@{/inicio}"> <i class="bi bi-book-half logo"></i> <span> Biblioteca
-					Comunal <small>"Los
-						Libertadores"</small>
-				</span>
+			<a class="navbar-brand marca" th:href="@{/intranet}"> <i
+				class="bi bi-book-half logo"></i> <span> Intranet <small>Biblioteca
+						Comunal "Los Libertadores"</small>
+			</span>
 			</a>
 
-			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuBiblioteca"
-				aria-controls="menuBiblioteca" aria-expanded="false" aria-label="Abrir menú">
+			<button class="navbar-toggler" type="button"
+				data-bs-toggle="collapse" data-bs-target="#menuBiblioteca"
+				aria-controls="menuBiblioteca" aria-expanded="false"
+				aria-label="Abrir menú">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="menuBiblioteca">
 				<ul class="navbar-nav ms-auto align-items-lg-center">
 
-					<li class="nav-item"><a class="nav-link" th:href="@{/inicio}"> <i class="bi bi-house-door-fill"></i>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet}"> <i class="bi bi-house-door-fill"></i>
 							Inicio
-						</a></li>
+					</a></li>
 
-					<li class="nav-item"><a class="nav-link" th:href="@{/libros/repertorio}"> <i class="bi bi-book"></i>
-							Repertorio de libros
-						</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/libros}"> <i class="bi bi-book"></i>
+							Libros
+					</a></li>
 
-					<li class="nav-item"><a class="nav-link activo" th:href="@{/tickets}">
-							<i class="bi bi-ticket-perforated-fill"></i> Generar ticket
-						</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/prestamos}"> <i
+							class="bi bi-journal-bookmark"></i> Préstamos
+					</a></li>
 
-					<li class="nav-item"><a class="nav-link" th:href="@{/reservas}"> <i
-								class="bi bi-calendar-check"></i>
-							Reservas
-						</a></li>
+					<li class="nav-item"><a class="nav-link activo"
+						th:href="@{/intranet/tickets}"> <i
+							class="bi bi-ticket-perforated-fill"></i> Tickets
+					</a></li>
 
-					<li class="nav-item ms-lg-3"><a class="btn btn-light boton-login" th:href="@{/login}"> <i
-								class="bi bi-person-circle"></i> Salir
-						</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/usuarios}"> <i class="bi bi-people-fill"></i>
+							Usuarios
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/reportes}"> <i
+							class="bi bi-bar-chart-fill"></i> Reportes
+					</a></li>
+
+					<li class="nav-item ms-lg-3"><a
+						class="btn btn-light boton-login" th:href="@{/login}"> <i
+							class="bi bi-person-circle"></i> Salir
+					</a></li>
 
 				</ul>
 			</div>

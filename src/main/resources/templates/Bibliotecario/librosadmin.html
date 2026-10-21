@@ -19,12 +19,13 @@
 <body>
 
 	<!-- Nav Bar -->
-	<nav class="navbar navbar-expand-lg navbar-dark menu-principal">
+	<nav th:fragment="menu(activo)"
+		class="navbar navbar-expand-lg navbar-dark menu-principal">
 		<div class="container-fluid px-lg-5">
 
-			<a class="navbar-brand marca" th:href="@{/inicio}"> <i
-				class="bi bi-book-half logo"></i> <span> Biblioteca Comunal <small>"Los
-						Libertadores"</small>
+			<a class="navbar-brand marca" th:href="@{/intranet}"> <i
+				class="bi bi-book-half logo"></i> <span> Intranet <small>Biblioteca
+						Comunal "Los Libertadores"</small>
 			</span>
 			</a>
 
@@ -38,22 +39,34 @@
 			<div class="collapse navbar-collapse" id="menuBiblioteca">
 				<ul class="navbar-nav ms-auto align-items-lg-center">
 
-					<li class="nav-item"><a class="nav-link" th:href="@{/inicio}">
-							<i class="bi bi-house-door-fill"></i> Inicio
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet}"> <i class="bi bi-house-door-fill"></i>
+							Inicio
 					</a></li>
 
 					<li class="nav-item"><a class="nav-link activo"
-						th:href="@{/libros/repertorio}"> <i class="bi bi-book"></i>
-							Repertorio de libros
-					</a></li>
-
-					<li class="nav-item"><a class="nav-link" th:href="@{/tickets}">
-							<i class="bi bi-ticket-perforated-fill"></i> Generar ticket
+						th:href="@{/intranet/libros}"> <i class="bi bi-book"></i>
+							Libros
 					</a></li>
 
 					<li class="nav-item"><a class="nav-link"
-						th:href="@{/reservas}"> <i class="bi bi-calendar-check"></i>
-							Reservas
+						th:href="@{/intranet/prestamos}"> <i
+							class="bi bi-journal-bookmark"></i> Préstamos
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/tickets}"> <i
+							class="bi bi-ticket-perforated-fill"></i> Tickets
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/usuarios}"> <i class="bi bi-people-fill"></i>
+							Usuarios
+					</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/intranet/reportes}"> <i
+							class="bi bi-bar-chart-fill"></i> Reportes
 					</a></li>
 
 					<li class="nav-item ms-lg-3"><a
@@ -70,6 +83,8 @@
 	<div
 		class="container mt-4 d-flex justify-content-between align-items-center mt-4">
 		<h2>Repertorio de Libros</h2>
+		<span class="badge text-bg-secondary fs-6"
+			th:text="'Total: ' + ${#lists.size(lstLibros)}"></span>
 	</div>
 
 	<table class="container mt-4 table table-striped table-hover shadow-sm">
@@ -98,14 +113,12 @@
 					th:text="${l.obj_genero != null ? l.obj_genero.nomGenero : 'No definido'}"></td>
 				<td th:text="${l.anio}"></td>
 				<td th:text="${l.editorial}"></td>
-				<td th:text="${l.sinopsis}"></td>
+				<td><div class="text-truncate" style="max-width: 260px;"
+						th:text="${l.sinopsis}" th:title="${l.sinopsis}"></div></td>
 				<td><span th:if="${l.estadoLibro == 1}"
 					class="badge bg-success">Disponible</span> <span
 					th:if="${l.estadoLibro == 0}" class="badge bg-danger">No
 						Disponible</span></td>
-
-				<td><a href="/reservas/nueva" class="btn btn-sm btn-primary">Reservar</a>
-				</td>
 			</tr>
 		</tbody>
 	</table>
